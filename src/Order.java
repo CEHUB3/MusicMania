@@ -16,17 +16,16 @@ public class Order {
     }
 
     public String getReceipt() {
-
-        String str = "Reciept for order #" + orderNumber + "\n" +
-                "------------\n";
+        StringBuilder str = new StringBuilder("Reciept for order #" + orderNumber + "\n" +
+                "------------\n");
         for (Priceable p : items) {
-            str += p.toString() + "\n";
+            str.append(p.toString()).append("\n");
         }
-        str += "Total excl. VAT: " + getTotalValue() + "\n";
-        str += "Total incl. VAT: " + getTotalValuePlusVAT() + "\n";
-        str += "-------------\n";
+        str.append("Total excl. VAT: ").append(getTotalValue()).append("\n");
+        str.append("Total incl. VAT: ").append(getTotalValuePlusVAT()).append("\n");
+        str.append("-------------\n");
 
-        return str;
+        return str.toString();
     }
 
     public double getTotalValuePlusVAT() {
